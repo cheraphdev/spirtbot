@@ -1,0 +1,20 @@
+{
+  "author": "cheraph#6290",
+  "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "axios": "^1.3.2",
+    "canvas": "^2.11.0",
+    "discord-canvas-easy": "^3.2.1",
+    "discord-gamecord": "^4.1.0",
+    "discord-logs": "^2.2.1",
+    "discord.js": "^14.7.1",
+    "discord.js-v14-helper": "^1.11.4",
+    "discordio-backup": "^1.0.6",
+    "fs": "^0.0.1-security",
+    "mongoose": "^6.9.1",
+    "ms": "^2.1.3",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "util-stunks": "^1.1.7"
+  }
+}
