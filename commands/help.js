@@ -12,13 +12,33 @@ module.exports = {
 
     async run(bot, message) {
     
-    let test = new Discord.ActionRowBuilder()
+    let support = new Discord.ActionRowBuilder()
             .addComponents(
                 new Discord.ButtonBuilder()
-                    .setCustomId("info")
-                    .setEmoji("❓")
-                    .setLabel("Information")
-                    .setStyle(Discord.ButtonStyle.Success)
+                    //.setCustomId("support")
+                    //.setEmoji("❓")
+                    .setLabel("Support")
+                    .setURL("https://discord.gg/wtzJzBvyBR")
+                    .setStyle(Discord.ButtonStyle.Link)
+            )
+            
+            let invitation = new Discord.ActionRowBuilder()
+            .addComponents(
+                new Discord.ButtonBuilder()
+                    //.setCustomId("invitation")
+                    //.setEmoji("❓")
+                    .setLabel("Invitation")
+                    .setURL("https://discord.gg/")
+                    .setStyle(Discord.ButtonStyle.Link)
+            )
+            
+            let bugReport = new Discord.ActionRowBuilder()
+            .addComponents(
+                new Discord.ButtonBuilder()
+                    .setCustomId("bug-report")
+                    .setLabel("Signaler un bug")
+                    .setStyle(Discord.ButtonStyle.Danger)
+                    .setDisabled(true)
             )
             
         let Embed1 = new Discord.EmbedBuilder()
@@ -36,6 +56,6 @@ module.exports = {
 	     .setFooter({ text: 'Notre objectif et de vous accompagner dans la protection de votre serveur Discord 😊', iconURL: bot.user.displayAvatarURL({dynamic: true})})
             .setColor(`${config.colorEmbed}`)
 
-        await message.reply({embeds: [Embed1, Embed], components: [test], ephemeral: false})
+        await message.reply({embeds: [Embed1, Embed], components: [support, invitation, bugReport], ephemeral: false})
     }
 }
