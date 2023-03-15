@@ -1,54 +1,54 @@
 const Discord = require("discord.js")
 const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js')
-const config = require("../config.js")
+const config = require("../config")
 
 module.exports = {
 
-   name: "ticket",
-   description: "⚙️ Configurer le système de ticket.",
-   permission: Discord.PermissionFlagsBits.ManageGuild,
-   ownerOnly: false,
-   premiumOnly: false,
-   dm: false,
-   options: [
-          {
-                 type: "channel",
-                 name: "channel",
-                 description: "📩 Salon d'envoie de l'embed du panel de ticket.",
-                 required: true,
-          }
-   ],
-        
-        async run(bot, interaction) {
-        
-                const channel = interaction.guild.channels.cache.get(interaction.options.get('channel')?.value || interaction.channel.id);
+    name: "ticket",
+    description: "⚙️ Configurer le système de ticket.",
+    permission: Discord.PermissionFlagsBits.ManageGuild,
+    ownerOnly: false,
+    premiumOnly: false,
+    dm: false,
+    options: [
+        {
+            type: "channel",
+            name: "channel",
+            description: "📩 Salon d'envoie de l'embed du panel de ticket.",
+            required: true
+        }
+    ],
 
-        if(!channel) return interaction.reply({
+    async run(bot, interaction) {
+
+        const channel = interaction.guild.channels.cache.get(interaction.options.get('channel')?.value || interaction.channel.id);
+
+        if (!channel) return interaction.reply({
             content: `Salon introuvable !`,
             ephemeral: true
         });
-        
+
         const ImageembedMain = new EmbedBuilder()
             .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071564769787658291/Premium_8.png")
-            .setColor(`${config.colorEmbed}`);
+            .setColor(`${config.botinfo.colorEmbed}`);
 
         const embedMain = new EmbedBuilder()
             .setTitle("<:edit:1071563254834397277> Personnalisé l'embed du système de ticket")
             .setDescription("Vous pouvez modifier l'embed du système de ticket a votre guise 🤩\n\n⚠️ **Le système et nouveau, il peut y avoir des bug !**")
-            .setColor(`${config.colorEmbed}`);
-            
+            .setColor(`${config.botinfo.colorEmbed}`);
+
         let ImageembedToEdit = new EmbedBuilder()
-           .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071520832851034233/Premium_7.png")
-           .setColor(`${config.colorEmbed}`);
+            .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071520832851034233/Premium_7.png")
+            .setColor(`${config.botinfo.colorEmbed}`);
 
         let embedToEdit = new EmbedBuilder()
-           .setDescription("Personnalise moi avec le menu deroulent qui est juste en dessous !");
-            
+            .setDescription("Personnalise moi avec le menu deroulent qui est juste en dessous !");
+
         let btn = new Discord.ActionRowBuilder().addComponents(new Discord.ButtonBuilder()
-           .setCustomId("ticket")
-           .setLabel("Ouvrir une demande de support")
-           .setStyle(Discord.ButtonStyle.Primary)
-           .setEmoji("<:info:1071521506573701120>"))
+            .setCustomId("ticket")
+            .setLabel("Ouvrir une demande de support")
+            .setStyle(Discord.ButtonStyle.Primary)
+            .setEmoji("<:info:1071521506573701120>"))
 
         interaction.reply({
             embeds: [
@@ -79,7 +79,7 @@ module.exports = {
                             },
                             {
                                 label: "Couleur de l'embed.",
-                                emoji: "4️⃣", 
+                                emoji: "4️⃣",
                                 value: "color"
                             }
                         )
@@ -111,18 +111,18 @@ module.exports = {
 
             // Title:
             if (ID === "title") {
-            
-            let ImageTitle = new EmbedBuilder()
-                            .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071575447634190377/Premium_9.png")
-                            .setColor(`${config.colorEmbed}`)
-            
+
+                let ImageTitle = new EmbedBuilder()
+                    .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071575447634190377/Premium_9.png")
+                    .setColor(`${config.botinfo.colorEmbed}`)
+
                 i.reply({
                     embeds: [
                         ImageTitle,
-                        
+
                         new EmbedBuilder()
                             .setDescription('Veuillez saisir dans ce salon le contenu qui devrait figurer dans le titre de l\'embed.')
-                            .setColor(`${config.colorEmbed}`)
+                            .setColor(`${config.botinfo.colorEmbed}`)
                             .setFooter({
                                 text: "Envoie \"annuler\" pour annuler cette interaction."
                             })
@@ -141,18 +141,18 @@ module.exports = {
                     const message = received.first().content.substr(0, 256);
 
                     if (message === "annuler") {
-                    
-                    let AnnulerTitle = new EmbedBuilder()
+
+                        let AnnulerTitle = new EmbedBuilder()
                             .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071577187121111060/Premium_10.png")
-                            .setColor(`${config.colorEmbed}`)
-                    
+                            .setColor(`${config.botinfo.colorEmbed}`)
+
                         return i.editReply({
                             embeds: [
-                               AnnulerTitle,
-                                   
+                                AnnulerTitle,
+
                                 new EmbedBuilder()
                                     .setDescription('Annuler.')
-                                    .setColor(`${config.colorEmbed}`)
+                                    .setColor(`${config.botinfo.colorEmbed}`)
                             ]
                         });
                     };
@@ -171,18 +171,18 @@ module.exports = {
 
             // Description:
             if (ID === "desc") {
-            
-            let ImageDescription = new EmbedBuilder()
-                            .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071578651184873523/Premium_11.png")
-                            .setColor(`${config.colorEmbed}`)
-            
+
+                let ImageDescription = new EmbedBuilder()
+                    .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071578651184873523/Premium_11.png")
+                    .setColor(`${config.botinfo.colorEmbed}`)
+
                 i.reply({
                     embeds: [
-                    ImageDescription,
-                    
+                        ImageDescription,
+
                         new EmbedBuilder()
                             .setDescription('Veuillez saisir dans ce salon le contenu qui devrait figurer dans la description de l\'embed.')
-                            .setColor(`${config.colorEmbed}`)
+                            .setColor(`${config.botinfo.colorEmbed}`)
                             .setFooter({
                                 text: "Envoie \"annuler\" pour annuler cette interaction."
                             })
@@ -201,18 +201,18 @@ module.exports = {
                     const message = received.first().content.substr(0, 4096);
 
                     if (message === "annuler") {
-                    
-                    let AnnulerDescription = new EmbedBuilder()
+
+                        let AnnulerDescription = new EmbedBuilder()
                             .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071577187121111060/Premium_10.png")
-                            .setColor(`${config.colorEmbed}`)
-                    
+                            .setColor(`${config.botinfo.colorEmbed}`)
+
                         return i.editReply({
                             embeds: [
-                            AnnulerDescription,
-                            
+                                AnnulerDescription,
+
                                 new EmbedBuilder()
                                     .setDescription('Annuler.')
-                                    .setColor(`${config.colorEmbed}`)
+                                    .setColor(`${config.botinfo.colorEmbed}`)
                             ]
                         });
                     };
@@ -231,18 +231,18 @@ module.exports = {
 
             // Footer:
             if (ID === "footer") {
-            
-            let ImageFooter = new EmbedBuilder()
-                            .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071579240765599795/Premium_12.png")
-                            .setColor(`${config.colorEmbed}`)
-            
+
+                let ImageFooter = new EmbedBuilder()
+                    .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071579240765599795/Premium_12.png")
+                    .setColor(`${config.botinfo.colorEmbed}`)
+
                 i.reply({
                     embeds: [
-                    ImageFooter,
-                    
+                        ImageFooter,
+
                         new EmbedBuilder()
                             .setDescription('Veuillez saisir dans ce salon le contenu qui devrait figurer dans le footer de l\'embed.')
-                            .setColor(`${config.colorEmbed}`)
+                            .setColor(`${config.botinfo.colorEmbed}`)
                             .setFooter({
                                 text: "Envoie \"annuler\" pour annuler cette interaction."
                             })
@@ -261,18 +261,18 @@ module.exports = {
                     const message = received.first().content.substr(0, 2048);
 
                     if (message === "annuler") {
-                    
-                    let AnnulerFooter = new EmbedBuilder()
+
+                        let AnnulerFooter = new EmbedBuilder()
                             .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071577187121111060/Premium_10.png")
-                            .setColor(`${config.colorEmbed}`)
-                    
+                            .setColor(`${config.botinfo.colorEmbed}`)
+
                         return i.editReply({
                             embeds: [
-                            AnnulerFooter,
-                            
+                                AnnulerFooter,
+
                                 new EmbedBuilder()
                                     .setDescription('Annuler.')
-                                    .setColor(`${config.colorEmbed}`)
+                                    .setColor(`${config.botinfo.colorEmbed}`)
                             ]
                         });
                     };
@@ -291,21 +291,21 @@ module.exports = {
 
             // Color:
             if (ID === "color") {
-            
-            let ImageColor = new EmbedBuilder()
-                            .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071579711894982676/Premium_13.png")
-                            .setColor(`${config.colorEmbed}`)
-            
+
+                let ImageColor = new EmbedBuilder()
+                    .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071579711894982676/Premium_13.png")
+                    .setColor(`${config.botinfo.colorEmbed}`)
+
                 i.reply({
                     embeds: [
-                    ImageColor,
-                    
+                        ImageColor,
+
                         new EmbedBuilder()
                             .setDescription('Veuillez saisir dans ce salon le nom de la couleur ou le code HEX qui doit figurer dans l\'intégration de couleur de l\'embed.')
                             .setFooter({
                                 text: "Envoie \"annuler\" pour annuler cette interaction.\nRemarque : Pour l'API Discord, vous devez fournir des couleurs telles que \"Blue\", \"Red\"... etc. Le nom de la couleur commence toujours par une lettre majuscule."
                             })
-                            .setColor(`${config.colorEmbed}`)
+                            .setColor(`${config.botinfo.colorEmbed}`)
                     ],
                     ephemeral: true
                 }).catch(() => { });
@@ -321,18 +321,18 @@ module.exports = {
                     const message = received.first().content.substr(0, 256);
 
                     if (message === "annuler") {
-                    
-                    let AnnulerColor = new EmbedBuilder()
+
+                        let AnnulerColor = new EmbedBuilder()
                             .setImage("https://media.discordapp.net/attachments/1070999143629197384/1071577187121111060/Premium_10.png")
-                            .setColor(`${config.colorEmbed}`)
-                    
+                            .setColor(`${config.botinfo.colorEmbed}`)
+
                         return i.editReply({
                             embeds: [
-                            AnnulerColor,
-                            
+                                AnnulerColor,
+
                                 new EmbedBuilder()
                                     .setDescription('Annuler.')
-                                    .setColor(`${config.colorEmbed}`)
+                                    .setColor(`${config.botinfo.colorEmbed}`)
                             ]
                         });
                     };
@@ -369,9 +369,9 @@ module.exports = {
                         embedToEdit
                     ],
                     components: [
-                    btn
+                        btn
                     ]
-                 
+
                 }).catch(() => { });
 
                 await i.reply({
@@ -391,9 +391,9 @@ module.exports = {
                 return collectorBUTTONS.stop();
             };
 
-            
+
         });
 
     },
-        
+
 }

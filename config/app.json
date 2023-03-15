@@ -1,0 +1,14 @@
+{
+    "host": "http://localhost",
+    "port": 80,
+    "oauth2": {
+        "redirect_uri": "/api/oauth2/token",
+        "scope": [
+            "identify",
+            "guilds"
+        ]
+    },
+    "oauth2Guild": {
+        "redirect_uri": "/api/oauth2/invite-guild"
+    }
+}

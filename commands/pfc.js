@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
-const config = require("../config.js")
- 
+const config = require("../config")
+
 module.exports = {
     name: 'pfc',
     description: '✂️ Jouer au pierre, feuille, ciseaux.',
@@ -20,10 +20,10 @@ module.exports = {
         let choice = args.getString("choice")
         let botChoice = ["pierre", "feuille", "ciseaux"]
         botChoice = botChoice[Math.floor(Math.random() * botChoice.length)];
- 
+
         const Embed = new Discord.EmbedBuilder()
-            .setColor(`${config.colorEmbed}`)
-            .setFooter({ text: 'Notre objectif et de vous accompagner dans la protection de votre serveur Discord 😊', iconURL: bot.user.displayAvatarURL({dynamic: true})})
+            .setColor(`${config.botinfo.colorEmbed}`)
+            .setFooter({ text: 'Notre objectif et de vous accompagner dans la protection de votre serveur Discord 😊', iconURL: bot.user.displayAvatarURL({ dynamic: true }) })
         let result;
         if (choice === botChoice) {
             result = "Égalité";

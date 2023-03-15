@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const config = require("../config.js")
+const config = require("../config")
 
 module.exports = {
 
@@ -28,7 +28,7 @@ module.exports = {
             .setDescription(`**Voici l'avatar de ${user.username}**`)
             .setImage(user.displayAvatarURL({dynamic: true, size: 4096}))
             .setFooter({ text: 'Notre objectif et de vous accompagner dans la protection de votre serveur Discord 😊', iconURL: bot.user.displayAvatarURL({dynamic: true})})
-            .setColor(`${config.colorEmbed}`)
+            .setColor(`${config.botinfo.colorEmbed}`)
         
         await message.reply({embeds: [EmbedAvatar]})
     }
