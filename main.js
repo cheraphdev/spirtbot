@@ -24,7 +24,7 @@ console.log(String.raw`
  |_____/| .__/|_|_|   \__|____/ \___/ \__|
         | |                               
         |_|                               
-     Dev by cheraph#6290 ❤️
+     Dev by koyaim#6290 ❤️
 `)
 
 //bot.host = `${config.appinfo.host}${config.appinfo.port === 8080 ? "" : `:${config.appinfo.port}`}`;
