@@ -1,5 +1,5 @@
 {
-  "author": "koyaim#6290",
+  "author": "cheraphdev",
   "dependencies": {
     "@discordjs/rest": "^1.5.0",
     "axios": "^1.3.2",
