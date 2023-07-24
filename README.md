@@ -25,4 +25,4 @@ Si vous avez des erreur au démarrage merci de me contacter sur Discord **koyaim
 
 ### Dépôts :
 
-* **[SpirtBot BOT](https://github.com/koyaimdev/spirtbot)**
+* **[SpirtBot BOT](https://github.com/cheraphdev/spirtbot)**
